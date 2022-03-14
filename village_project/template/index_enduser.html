@@ -1,0 +1,7 @@
+<h1>hello enduser</h1>
+<a class="nav-link" href="{% url 'users:logout' %}">logout</a>
+<a class="nav-link" href="{% url 'users:news'%}">View News</a>
+<a class="nav-link" href="{% url 'users:complaint_registration'%}">Register Complaints</a>
+<a class="nav-link" href="{% url 'users:complaint_list'%}">Complaint List</a>
+<a class="nav-link" href="{% url 'users:enduser_profile' user.enduser.pk %}">Enduser profile</a>
+

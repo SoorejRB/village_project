@@ -1,0 +1,19 @@
+<h1>hello panchayath</h1>
+
+<a class="nav-link" href="{% url 'users:logout' %}">logout</a>
+
+<a class="nav-link" href='{% url "users:employee_registration"%}'>Register Employee</a>
+
+<a class="nav-link" href='{% url "users:employee_list"%}'>Employees</a>
+
+<a class="nav-link" href="{% url 'users:add_news'%}">Add NEWS</a>
+
+<a class="nav-link" href="{% url 'users:news'%}">View News</a>
+
+<a class="nav-link" href="{% url 'users:complaint_list'%}">Complaint List</a>
+
+<a class="nav-link" href="{% url 'users:panchayath_profile' user.panchayath.pk%}">Panchayath profile</a>
+
+
+
+

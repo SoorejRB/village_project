@@ -1,0 +1,49 @@
+{% extends 'base.html'%}
+
+{% block content%} 
+<div>
+    <div class="table-responsive">
+        <h4>Salary List</h4>
+        <table class="table">
+            <th>
+                {% if object_list %}
+                <tr>
+                    <th></th>
+                    <th>Employee Name</th>
+                    <th>Credited on</th>
+                    <th>View Details</th>
+
+                    
+                    
+                </tr>
+                {% endif %}
+            </th>
+            <tbody>
+                {% if object_list %}
+                    {% for objects in object_list %}
+                    
+                    <tr>
+                        <th>{{ forloop.counter }}</th>
+                        <td>{{ objects.employee_name }}</td>
+                        <td>{{ objects.credited_on }}</td>
+                        
+                        <td>
+                            <a href="{% url 'users:salary_details' objects.pk  %}">salary details
+
+
+                            </a></td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <th>
+                            no salary found
+                        </th>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %} 

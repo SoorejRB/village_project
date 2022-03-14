@@ -1,0 +1,97 @@
+{% extends 'base.html'%}
+
+{% block content%} 
+<div>
+    <div class="table-responsive">
+        <h2>Complaint List</h2>
+        <table class="table">
+            <th>
+                {% if object_list %}
+                <tr>
+                    <th></th>
+                    <th>Creator</th>
+                    <th>Created Date</th>
+                    <th>Status</th>
+                    <th>View Details</th>
+
+                    
+                    
+                </tr>
+                {% endif %}
+            </th>
+            <tbody>
+                {% if object_list %}
+                    {% for objects in object_list %}
+                    
+                    <tr>
+                        <th>{{ forloop.counter }}</th>
+                        <td>{{ objects.enduser }}</td>
+                        <td>{{ objects.created_date }}</td>
+                        <td>{{ objects.solved }}</td>
+                        
+                        <td>
+                            <a href="{% url 'users:complaint_details' objects.pk  %}">Complaint details
+
+
+                            </a></td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <th>
+                            no unsolved complaints found
+                        </th>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+        <div>
+            <div>
+                <h2>solved complaints</h2>
+                <table>
+                    <tbody>
+                        {% if resolved_complaints %}
+                                <tr>
+                                    <th></th>
+                                    <th>Creator</th>
+                                    <th>Created Date</th>
+                                    <th>Status</th>
+                                    <th>View Details</th>
+
+                                    
+                                    
+                                </tr>
+                                {% endif %}
+                            </th>
+                            <tbody>
+                                {% if resolved_complaints %}
+                                    {% for objects in resolved_complaints %}
+                                    
+                                    <tr>
+                                        <th>{{ forloop.counter }}</th>
+                                        <td>{{ objects.enduser }}</td>
+                                        <td>{{ objects.created_date }}</td>
+                                        <td>{{ objects.solved }}</td>
+                                        
+                                        <td>
+                                            <a href="{% url 'users:complaint_details' objects.pk  %}">Complaint details
+
+
+                                            </a></td>
+                                    </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <tr>
+                                        <th>
+                                            no solved complaints found
+                                        </th>
+                                    </tr>
+                                {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %} 

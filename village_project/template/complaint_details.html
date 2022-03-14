@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+
+{% block content%}
+
+
+<div>
+    <h4>
+       
+        <p>
+            created date:{{ complaint.created_date }}
+        </p>
+        <p>
+           creator:{{ complaint.enduser }}
+        </p>
+        <p>
+           solved:{{ complaint.solved }}
+        </p>
+        <p>
+           panchayath name:{{ complaint.panchayath_name }}
+        </p>
+        <p>
+            complaint:{{ complaint.description }}
+        </p>
+    </h4>
+
+    {% if user.is_employee %}
+        {% if not complaint.solved %}
+            <a class='btn' href="{% url 'users:solve' complaint_id=complaint.pk %}">Solve?</a>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}
